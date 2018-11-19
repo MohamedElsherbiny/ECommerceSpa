@@ -1,0 +1,18 @@
+{{categorysForSeclect | json}}
+<div class="container py-5 h-100">
+  <div class="row">
+    <div class="col-sm-2 pr-2">
+      <div class="row">
+        <h5 class="text-primary">Categorys</h5>
+          <button mat-flat-button class="w-75 h-25 mt-2" color="primary" *ngFor="let item of categorysForSeclect">{{item.categoryName}}</button>
+      </div>
+    </div>
+    <div class="col-sm-10">
+      <div class="row">
+        <div class="p-2" *ngFor="let item of products">
+          <app-prduct-card (productId)="getProductId($event)" [product]="item"></app-prduct-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

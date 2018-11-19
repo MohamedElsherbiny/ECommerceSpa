@@ -1,0 +1,57 @@
+<div class="container mt-5">
+  <div class="row justify-content-center align-items-center">
+    <form class="example-form" #addProductForm="ngForm">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Product Name" id="name" name="name" [(ngModel)]="product.name" required maxlength="200"
+          minlength="3">
+      </mat-form-field>
+
+
+      <mat-form-field class="example-full-width">
+        <textarea matInput placeholder="Description" id="description" name="description" [(ngModel)]="product.description"
+          required maxlength="400" minlength="20"></textarea>
+      </mat-form-field>
+
+      <table>
+        <tr>
+          <td>
+            <mat-form-field class="pl-5">
+              <input type="number" matInput placeholder="price" required min="0" id="price" [(ngModel)]="product.unitPrice"
+                name="unitPrice">
+            </mat-form-field>
+            <mat-form-field class="pl-5">
+              <input type="number" matInput placeholder="Quantity" required min="1" [(ngModel)]="product.quantityPerUnit"
+                id="quantityPerUnit" name="quantityPerUnit">
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+
+      <table class="mb-5">
+        <tr>
+          <td>
+            <mat-form-field class="pl-5">
+              <mat-select placeholder="Category" [(ngModel)]="product.supplierId" name="supplierId">
+                <mat-option *ngFor="let supplier of suppliersForSeclect" [value]="supplier.supplierId">
+                  {{supplier.supplierName}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="pl-5">
+              <mat-select placeholder="Category" [(ngModel)]="product.categoryId" name="categoryId">
+                <mat-option *ngFor="let category of categorysForSeclect" [value]="category.categoryId">
+                  {{category.categoryName}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+      <button mat-raised-button color="primary" (click)="AddProduct()" [disabled]="!addProductForm.valid">Add Product</button>
+      <button mat-raised-button class="ml-3" [routerLink]="['/home']" color="warn">Cancel</button>
+
+    </form>
+  </div>
+</div>
