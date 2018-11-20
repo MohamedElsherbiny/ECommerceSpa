@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Product } from 'src/app/model/product.model';
-import { RestDatasourceService } from 'src/app/services/rest-datasource.service';
+import { RestDatasourceService } from 'src/app/services/rest-product.service';
 import { Router } from '@angular/router';
 
 @Component({

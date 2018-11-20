@@ -1,11 +1,11 @@
 import { Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { map, filter, distinct } from 'rxjs/operators';
 
 import { Product } from '../model/product.model';
 import { Supplier } from '../model/supplier.model';
 import { Category } from '../model/category.model';
+import { ProductToAdd } from '../model/productToAdd.model';
 
 @Injectable({
   providedIn: 'root'
@@ -19,17 +19,18 @@ export class RestDatasourceService {
     return this.http.get<Product[]>(this.baseUrl + 'product');
   }
 
+  getProduct(id: number): Observable<Product> {
+    return this.http.get<Product>(this.baseUrl + 'product/' + id);
+  }
+  updateProduct(product: ProductToAdd): Observable<ProductToAdd> {
+    return this.http.post<ProductToAdd>(this.baseUrl + 'product/Update', product);
+  }
+
   getSuppliers(): Observable<Supplier[]> {
-    return this.getProducts()
-      .pipe(
-        map(data => data.map(x => x.supplier))
-      );
+    return this.http.get<Supplier[]>(this.baseUrl + 'supplier');
   }
   getCategorys(): Observable<Category[]> {
-    return this.getProducts()
-      .pipe(
-        map(data => data.map(x => x.category))
-      );
+    return this.http.get<Category[]>(this.baseUrl + 'category');
   }
 
   addProduct(product: Product): Observable<any> {

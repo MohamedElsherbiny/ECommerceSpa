@@ -1,10 +1,9 @@
-{{categorysForSeclect | json}}
 <div class="container py-5 h-100">
   <div class="row">
     <div class="col-sm-2 pr-2">
       <div class="row">
-        <h5 class="text-primary">Categorys</h5>
-          <button mat-flat-button class="w-75 h-25 mt-2" color="primary" *ngFor="let item of categorysForSeclect">{{item.categoryName}}</button>
+          <button mat-flat-button class="w-75 h-25 mt-2" color="primary">All Category</button>
+          <button mat-flat-button class="w-75 h-25 mt-2" color="null" *ngFor="let item of categorys">{{item.name}}</button>
       </div>
     </div>
     <div class="col-sm-10">

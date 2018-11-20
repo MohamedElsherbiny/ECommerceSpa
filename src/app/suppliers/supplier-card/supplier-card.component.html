@@ -1,0 +1,30 @@
+<mat-toolbar color="primary">Supplier</mat-toolbar>
+
+<mat-card class="card text-primary">
+	<mat-card-header>
+		<mat-card-title>{{supplier.companyName}}</mat-card-title>
+	</mat-card-header>
+	<mat-card-content>	
+			<mat-chip-list class="mat-chip-list-stacked">
+					<mat-chip selected color="accent">Contact Name : {{supplier.contactName}}</mat-chip>
+					<mat-chip selected color="accent">Country : {{supplier.country}}</mat-chip>
+					<mat-chip selected color="accent">City : {{supplier.city}}</mat-chip>
+					<mat-chip selected color="accent">Address : {{supplier.address}}</mat-chip>
+					<mat-chip selected color="accent">Phone : {{supplier.phone}}</mat-chip>
+					<mat-chip selected color="accent">Postal Code : {{supplier.postalCode}}</mat-chip>
+				  </mat-chip-list>
+	</mat-card-content>
+	<mat-card-actions class="d-flex card-actions">
+		<div class="ml-auto justify-content-center align-items-center">
+			<button mat-icon-button [routerLink]="[ '/supplier/detail', supplier.id ]" color="primary">
+				<mat-icon>info</mat-icon>
+			</button>
+			<button mat-icon-button [routerLink]="[ '/supplier/edit', supplier.id ]" color="accent">
+				<mat-icon>edit</mat-icon>
+			</button>
+			<button mat-icon-button color="warn" (click)="onDeleteSupplier()">
+				<mat-icon>delete</mat-icon>
+			</button>
+		</div>
+	</mat-card-actions>
+</mat-card>

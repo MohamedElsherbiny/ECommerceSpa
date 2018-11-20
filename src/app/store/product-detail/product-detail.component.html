@@ -1,0 +1,39 @@
+<div class="container my-5">
+  <div class="row">
+    <div class="col-5">
+      <!-- <img mat-card-image class="w-300-500" [src]="product?.photos[0]?.url" alt="Photo of a Shiba Inu"> -->
+      <div class="w-300-500">
+          <carousel>
+            <slide *ngFor="let item of product?.photos">
+              <img [src]="item?.url" mat-card-image  alt="first slide">
+            </slide>
+          </carousel>
+      </div>
+    </div>
+    <div class="col">
+      <mat-card class="example-card text-primary">
+        <mat-card-header>
+          <mat-card-title>{{product?.name}}
+              <button class="pr-auto" mat-icon-button [routerLink]="[ '/product/edit', product?.id ]" color="accent">
+                <mat-icon>edit</mat-icon>
+              </button>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p class="ml-3">
+            {{product?.description}}
+          </p>
+          <mat-chip-list>
+            <mat-chip color="primary" selected>Price : {{product?.unitPrice |currency}}</mat-chip>
+            <mat-chip color="primary" selected>Quantity : {{product?.quantityPerUnit}}</mat-chip>
+            <mat-chip color="primary" selected>Total Price : {{product?.quantityPerUnit * product?.unitPrice |
+              currency}}</mat-chip>
+            <mat-chip color="primary" selected>Total Photos : {{product?.photos.length}}</mat-chip>
+            <mat-chip color="accent" selected>Category : {{product?.category?.name}}</mat-chip>
+            <mat-chip color="accent" selected>Company Name : {{product?.supplier?.companyName}}</mat-chip>
+          </mat-chip-list>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

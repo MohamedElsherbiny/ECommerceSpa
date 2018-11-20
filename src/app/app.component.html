@@ -1,2 +1,15 @@
 <app-navbar></app-navbar>
+<div class="row mt-5">
+    <div class="col-3"></div>
+    <div class="col">
+        <mat-chip-list>
+            <mat-chip color="primary" [routerLink]="[ '/home' ]" selected >All Product </mat-chip>
+            <mat-chip color="primary" [routerLink]="[ '/supplier' ]" selected >All Supplier </mat-chip>
+            <mat-chip color="primary" [routerLink]="[ '/category' ]" selected >All Category</mat-chip>
+            <mat-chip color="accent" [routerLink]="[ '/product/add' ]" selected >Add Product</mat-chip>
+            <mat-chip color="accent" [routerLink]="[ '/supplier/add' ]" selected >Add Supplier </mat-chip>
+            <mat-chip color="accent" [routerLink]="[ '/category/add' ]" selected >Add Category</mat-chip>
+        </mat-chip-list>
+    </div>
+</div>
 <router-outlet></router-outlet>

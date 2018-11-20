@@ -31,9 +31,9 @@
         <tr>
           <td>
             <mat-form-field class="pl-5">
-              <mat-select placeholder="Category" [(ngModel)]="product.supplierId" name="supplierId">
-                <mat-option *ngFor="let supplier of suppliersForSeclect" [value]="supplier.supplierId">
-                  {{supplier.supplierName}}
+              <mat-select placeholder="Suppliers" [(ngModel)]="product.supplierId" name="supplierId">
+                <mat-option *ngFor="let supplier of suppliers" [value]="supplier.id">
+                  {{supplier.companyName}}
                 </mat-option>
               </mat-select>
             </mat-form-field>
@@ -41,8 +41,8 @@
           <td>
             <mat-form-field class="pl-5">
               <mat-select placeholder="Category" [(ngModel)]="product.categoryId" name="categoryId">
-                <mat-option *ngFor="let category of categorysForSeclect" [value]="category.categoryId">
-                  {{category.categoryName}}
+                <mat-option *ngFor="let category of categorys" [value]="category.id">
+                  {{category.name}}
                 </mat-option>
               </mat-select>
             </mat-form-field>

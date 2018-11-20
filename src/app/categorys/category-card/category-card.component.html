@@ -1,0 +1,23 @@
+<mat-toolbar color="primary">Category</mat-toolbar>
+
+<mat-card class="card text-primary">
+	<mat-card-header>
+		<mat-card-title>{{category.name}}</mat-card-title>
+	</mat-card-header>
+	<mat-card-content>	
+		<p>{{category.description}}</p>
+	</mat-card-content>
+	<mat-card-actions class="d-flex card-actions">
+		<div class="ml-auto justify-content-center align-items-center">
+			<button mat-icon-button [routerLink]="[ '/category/detail', category.id ]" color="primary">
+				<mat-icon>info</mat-icon>
+			</button>
+			<button mat-icon-button [routerLink]="[ '/category/edit', category.id ]" color="accent">
+				<mat-icon>edit</mat-icon>
+			</button>
+			<button mat-icon-button color="warn" (click)="onDeleteCategory()">
+				<mat-icon>delete</mat-icon>
+			</button>
+		</div>
+	</mat-card-actions>
+</mat-card>

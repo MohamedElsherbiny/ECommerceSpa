@@ -1,16 +1,33 @@
-<mat-card class="example-card">
+<mat-card class="card text-primary">
 	<img mat-card-image [src]="product.photos[0]?.url || 'https://dummyimage.com/230x300/46debb/80cef2&text=😎'" alt="Photo of a Shiba Inu">
 	<mat-card-header>
 		<mat-card-title>{{product.name}}</mat-card-title>
 	</mat-card-header>
 	<mat-card-content>
-		<p>
+		<p class="descHeight">
 			{{product.description}}
 		</p>
+		<mat-chip-list>
+			<mat-chip color="primary" selected>Price : {{product?.unitPrice |currency}}</mat-chip>
+			<mat-chip color="primary" selected>Quantity : {{product?.quantityPerUnit}}</mat-chip>
+			<mat-chip color="primary" selected>Total Price : {{product?.quantityPerUnit * product?.unitPrice |
+				currency}}</mat-chip>
+			<mat-chip color="primary" selected>Total Photos : {{product?.photos.length}}</mat-chip>
+			<mat-chip color="accent" selected>Category : {{product?.category?.name}}</mat-chip>
+			<mat-chip color="accent" selected>Company Name : {{product?.supplier?.companyName}}</mat-chip>
+		</mat-chip-list>
 	</mat-card-content>
-	<mat-card-actions>
-		<button mat-icon-button color="warn" (click)="onDeleteProduct()">
+	<mat-card-actions class="d-flex card-actions">
+		<div class="ml-auto justify-content-center align-items-center">
+			<button mat-icon-button [routerLink]="[ '/product/detail', product.id ]" color="primary">
+				<mat-icon>info</mat-icon>
+			</button>
+			<button mat-icon-button [routerLink]="[ '/product/edit', product.id ]" color="accent">
+				<mat-icon>edit</mat-icon>
+			</button>
+			<button mat-icon-button color="warn" (click)="onDeleteProduct()">
 				<mat-icon>delete</mat-icon>
-		</button>
+			</button>
+		</div>
 	</mat-card-actions>
 </mat-card>

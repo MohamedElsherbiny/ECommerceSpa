@@ -8,7 +8,8 @@ import {
   MatCardModule,
   MatInputModule,
   MatSelectModule,
-  MatChipsModule
+  MatChipsModule,
+  MatToolbarModule
 } from '@angular/material';
 
 
@@ -19,6 +20,7 @@ import {
     MatButtonModule,
     MatCheckboxModule,
     MatRadioModule,
+    MatToolbarModule,
     MatCardModule,
     MatInputModule,
     MatSelectModule,
@@ -32,7 +34,8 @@ import {
     MatCardModule,
     MatInputModule,
     MatSelectModule,
-    MatChipsModule
+    MatChipsModule,
+    MatToolbarModule
   ]
 })
 export class MaterialModuleModule { }

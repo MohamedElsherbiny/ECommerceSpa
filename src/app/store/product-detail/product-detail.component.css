@@ -1,0 +1,12 @@
+.example-card {
+    max-width: 800px;
+    max-height: 430px;
+  }
+  
+  .w-300-500{
+    display: block;
+    height: 300px;
+    width: 300px;
+  
+  }
+
