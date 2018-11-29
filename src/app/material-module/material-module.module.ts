@@ -9,7 +9,8 @@ import {
   MatInputModule,
   MatSelectModule,
   MatChipsModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatListModule
 } from '@angular/material';
 
 
@@ -24,11 +25,13 @@ import {
     MatCardModule,
     MatInputModule,
     MatSelectModule,
-    MatChipsModule
+    MatChipsModule,
+    MatListModule
   ],
   exports: [
     MatButtonModule,
     MatIconModule,
+    MatListModule,
     MatCheckboxModule,
     MatRadioModule,
     MatCardModule,

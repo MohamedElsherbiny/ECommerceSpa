@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row">
+        <div class="col-2 pt-2">
+            <div class="sied-navbar">
+                <button class="mt-2" mat-icon-button color="accent">
+                    <h5 [routerLink]="[ '/admin/users' ]"><mat-icon>supervisor_account</mat-icon></h5>
+                </button> <br>
+                <button class="mt-2" mat-icon-button color="accent">
+                    <h5 [routerLink]="[ '/admin/roles' ]"><mat-icon>low_priority</mat-icon></h5>
+                </button> <br>
+                <button class="pt-1" mat-icon-button color="accent">
+                    <h5 [routerLink]="[ '/admin/suppliers' ]"><mat-icon>work_outline</mat-icon></h5>
+                </button> <br>
+                <button class="pt-1" mat-icon-button color="accent">
+                        <h5 [routerLink]="[ '/admin/product/add' ]"><mat-icon>shop</mat-icon></h5>
+                    </button> <br>
+                <button class="pt-1" mat-icon-button color="accent">
+                    <h5 [routerLink]="[ '/admin/categorys' ]"><mat-icon>category</mat-icon>  </h5>
+                </button>
+            </div>
+        </div>
+        <div class="col-10">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

@@ -3,6 +3,7 @@ import { Product } from '../model/product.model';
 import { RestDatasourceService } from '../services/rest-product.service';
 import { Category } from '../model/category.model';
 import { Supplier } from '../model/supplier.model';
+import { RestAdminService } from '../services/rest-admin.service';
 
 @Component({
   selector: 'app-store',
@@ -11,12 +12,13 @@ import { Supplier } from '../model/supplier.model';
 })
 export class StoreComponent implements OnInit {
   products: Product[];
-
+  isAdmin = false;
   suppliers?: Supplier[] = [];
   categorys?: Category[] = [];
 
-  public constructor(private restService: RestDatasourceService) { }
+  public constructor(private restService: RestDatasourceService, private restAdmin: RestAdminService) { }
   ngOnInit(): void {
+    this.isAdmin = this.restAdmin.isAdmin();
     this.getProducts();
     this.getSuppliers();
     this.getCategorys();

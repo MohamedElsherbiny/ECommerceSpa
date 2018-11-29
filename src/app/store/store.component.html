@@ -1,16 +1,13 @@
-<div class="container py-5 h-100">
+<div class="container">
   <div class="row">
-    <div class="col-sm-2 pr-2">
-      <div class="row">
-          <button mat-flat-button class="w-75 h-25 mt-2" color="primary">All Category</button>
-          <button mat-flat-button class="w-75 h-25 mt-2" color="null" *ngFor="let item of categorys">{{item.name}}</button>
-      </div>
+    <div class="col">
+      <button mat-fab color="accent" *ngIf="isAdmin" [routerLink]="['/admin/users']"><mat-icon>domain</mat-icon></button>
     </div>
-    <div class="col-sm-10">
-      <div class="row">
-        <div class="p-2" *ngFor="let item of products">
-          <app-prduct-card (productId)="getProductId($event)" [product]="item"></app-prduct-card>
-        </div>
+  </div>
+  <div class="row justify-content-end">
+    <div *ngFor="let item of products">
+      <div class="col-md-3 pt-2">
+        <app-prduct-card (productId)="getProductId($event)" [product]="item"></app-prduct-card>
       </div>
     </div>
   </div>

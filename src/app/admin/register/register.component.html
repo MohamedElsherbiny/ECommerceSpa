@@ -1,0 +1,29 @@
+<div class="container mt-5">
+  <div class="row justify-content-center align-items-center">
+    <form class="example-form" #registerForm="ngForm">
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Username" name="name" [(ngModel)]="registerModel.userName" required
+          maxlength="200" minlength="3">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Password" type="password"  name="password" [(ngModel)]="registerModel.password"
+          required maxlength="200" minlength="3">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Email" type="email" name="email" [(ngModel)]="registerModel.email"
+          required maxlength="200" minlength="3">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Phone Number" type="text" name="phoneNumber" [(ngModel)]="registerModel.phoneNumber"
+          required maxlength="200" minlength="3">
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" [disabled]="!registerForm.valid" (click)="Register()" >Register</button>
+
+    </form>
+  </div>
+</div>

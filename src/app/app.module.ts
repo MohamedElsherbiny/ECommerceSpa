@@ -1,60 +1,43 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {  AppRoutingModule } from './app-routing.module';
-import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 import { MaterialModuleModule } from './material-module/material-module.module';
- import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
-import { PrductCardComponent } from './store/prduct-card/prduct-card.component';
-import { StoreComponent } from './store/store.component';
+import { AppRoutingModule } from './app-routing.module';
+
+import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { AdminModule } from './admin/admin.module';
+import { StoreModule } from './store/store.module';
+import { SupplierModule } from './suppliers/supplier.module';
+import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { ProductEditComponent } from './store/product-edit/product-edit.component';
-import { ProductAddComponent } from './store/product-add/product-add.component';
-import { ProductDetailComponent } from './store/product-detail/product-detail.component';
-import { SupplierComponent } from './suppliers/supplier.component';
-import { SupplierCardComponent } from './suppliers/supplier-card/supplier-card.component';
-import { SupplierDetailComponent } from './suppliers/supplier-detail/supplier-detail.component';
-import { SupplierEditComponent } from './suppliers/supplier-edit/supplier-edit.component';
-import { SupplierAddComponent } from './suppliers/supplier-add/supplier-add.component';
-import { CategoryComponent } from './categorys/category.component';
-import { CategoryAddComponent } from './categorys/category-add/category-add.component';
-import { CategoryCardComponent } from './categorys/category-card/category-card.component';
-import { CategoryDetailComponent } from './categorys/category-detail/category-detail.component';
-import { CategoryEditComponent } from './categorys/category-edit/category-edit.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { JwtInterceptor } from './services/jwt-interceptor.service';
+import { CartSummaryComponent } from './store/cart-summary/cart-summary.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    PrductCardComponent,
-    StoreComponent,
     NavbarComponent,
-    ProductAddComponent,
-    ProductEditComponent,
-    ProductDetailComponent,
-    SupplierComponent,
-    SupplierCardComponent,
-    SupplierDetailComponent,
-    SupplierEditComponent,
-    SupplierAddComponent,
-    CategoryComponent,
-    CategoryAddComponent,
-    CategoryCardComponent,
-    CategoryDetailComponent,
-    CategoryEditComponent,
+    CartSummaryComponent
   ],
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
     MaterialModuleModule,
-    HttpClientModule,
-    AppRoutingModule,
     FormsModule,
-    CarouselModule.forRoot()
+    RouterModule,
+    AppRoutingModule,
+    AdminModule,
+    StoreModule,
+    SupplierModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

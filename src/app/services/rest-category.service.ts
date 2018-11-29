@@ -14,7 +14,7 @@ export class RestCategoryService {
   getCategorys(): Observable<Category[]> {
     return this.http.get<Category[]>(this.baseUrl + 'category');
   }
-  getCategory(id: number): Observable<Category> {
+  getCategory(id: string): Observable<Category> {
     return this.http.get<Category>(this.baseUrl + 'category/' + id);
   }
   addCategory(category: Category): Observable<any> {
@@ -23,7 +23,7 @@ export class RestCategoryService {
   updateCategory(category: Category): Observable<any> {
     return this.http.post<any>(this.baseUrl + 'category/update', category);
   }
-  deleteCategory(categoryId: number): Observable<any> {
+  deleteCategory(categoryId: string): Observable<any> {
     return this.http.post<any>(this.baseUrl + 'category/delete/' + categoryId, {});
   }
 }

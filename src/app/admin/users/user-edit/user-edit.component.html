@@ -1,0 +1,32 @@
+<div class="container mt-5">
+  <div class="row justify-content-center align-items-center">
+    <form class="example-form" #addUserForm="ngForm">
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="UserName" id="userName" name="userName" [(ngModel)]="user.userName" required
+          maxlength="200" minlength="3">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Email" id="email" name="email" [(ngModel)]="user.email" required maxlength="200"
+          minlength="3">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input matInput type="password" placeholder="Password" id="password" name="password" [(ngModel)]="user.password" required
+          maxlength="200" minlength="3">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+          <input matInput placeholder="Phone Number" type="text" name="phoneNumber" [(ngModel)]="user.phoneNumber"
+            required maxlength="200" minlength="3">
+        </mat-form-field>
+      <div class="d-flex example-full-width">
+        <button mat-raised-button color="primary" (click)="saveUser()" [disabled]="!addUserForm.valid">Save User</button>
+        <button class="ml-auto" (click)="switchToAddForm()" mat-mini-fab color="accent">
+          <mat-icon>add</mat-icon>
+        </button>
+
+      </div>
+    </form>
+  </div>
+</div>

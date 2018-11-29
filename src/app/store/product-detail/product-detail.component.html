@@ -14,7 +14,7 @@
       <mat-card class="example-card text-primary">
         <mat-card-header>
           <mat-card-title>{{product?.name}}
-              <button class="pr-auto" mat-icon-button [routerLink]="[ '/product/edit', product?.id ]" color="accent">
+              <button *ngIf="isAdmin" class="pr-auto" mat-icon-button [routerLink]="[ '/product/edit', product?.id ]" color="accent">
                 <mat-icon>edit</mat-icon>
               </button>
           </mat-card-title>
@@ -26,9 +26,9 @@
           <mat-chip-list>
             <mat-chip color="primary" selected>Price : {{product?.unitPrice |currency}}</mat-chip>
             <mat-chip color="primary" selected>Quantity : {{product?.quantityPerUnit}}</mat-chip>
-            <mat-chip color="primary" selected>Total Price : {{product?.quantityPerUnit * product?.unitPrice |
+            <mat-chip color="primary" *ngIf="isAdmin" selected>Total Price : {{product?.quantityPerUnit * product?.unitPrice |
               currency}}</mat-chip>
-            <mat-chip color="primary" selected>Total Photos : {{product?.photos.length}}</mat-chip>
+            <mat-chip color="primary" *ngIf="isAdmin" selected>Total Photos : {{product?.photos.length}}</mat-chip>
             <mat-chip color="accent" selected>Category : {{product?.category?.name}}</mat-chip>
             <mat-chip color="accent" selected>Company Name : {{product?.supplier?.companyName}}</mat-chip>
           </mat-chip-list>

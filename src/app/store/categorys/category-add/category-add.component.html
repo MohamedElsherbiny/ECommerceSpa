@@ -1,0 +1,18 @@
+<div class="container mt-5">
+    <div class="row justify-content-center align-items-center">
+      <form class="example-form" #addCategoryForm="ngForm">
+  
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Category Name" id="name" name="name" [(ngModel)]="category.name" required maxlength="200"
+            minlength="3">
+        </mat-form-field>
+  
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Category Description" id="description" name="description" [(ngModel)]="category.description" required maxlength="200"
+            minlength="3">
+        </mat-form-field>
+  
+        <button mat-raised-button color="primary" (click)="addCategory()" [disabled]="!addCategoryForm.valid">Add Category</button>
+      </form>
+    </div>
+  </div>

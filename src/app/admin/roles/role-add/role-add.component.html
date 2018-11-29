@@ -1,0 +1,6 @@
+<form class="example-form" #addRoleForm="ngForm">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Role Name" id="role" name="role" [(ngModel)]="role" required maxlength="200" minlength="3">
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="addRole()" [disabled]="!addRoleForm.valid">Add Role</button>
+</form>

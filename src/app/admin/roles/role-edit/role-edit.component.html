@@ -1,0 +1,6 @@
+<form class="example-form" #saveRoleForm="ngForm">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Role Name" id="role" name="role" [(ngModel)]="role.name" required maxlength="200" minlength="3">
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="saveRole()" [disabled]="!saveRoleForm.valid">save Role</button>
+</form>

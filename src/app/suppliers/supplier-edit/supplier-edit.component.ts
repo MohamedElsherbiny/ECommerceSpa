@@ -17,6 +17,6 @@ export class SupplierEditComponent implements OnInit {
     this.restSupplier.getSupplier(supplierId).subscribe(x => this.supplier = x);
   }
   updateSupplier() {
-    this.restSupplier.updateSupplier(this.supplier).subscribe(x => this.router.navigate(['supplier']));
+    this.restSupplier.updateSupplier(this.supplier).subscribe(x => this.router.navigate(['admin/suppliers']));
   }
 }

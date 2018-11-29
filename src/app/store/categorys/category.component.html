@@ -1,0 +1,36 @@
+<div class="container py-5 h-100">
+    <div class="row">
+        <div class="col-8">
+            <mat-toolbar class=" d-flex align-content-center" color="accent">Categorys</mat-toolbar>
+            <div class="p-2" *ngFor="let category of categorys">
+                <mat-toolbar color="primary">{{category.name | titlecase}}</mat-toolbar>
+
+                <mat-card class="card text-primary">
+                    <mat-card-header>
+                        <mat-card-title>
+                            <p>{{category.description}}</p>
+                        </mat-card-title>
+                    </mat-card-header>
+                    <mat-card-actions class="d-flex card-actions">
+                        <div class="ml-auto justify-content-center align-items-center">
+                            <button mat-icon-button [routerLink]="[ '/category/detail', category.id ]" color="primary">
+                                <mat-icon>info</mat-icon>
+                            </button>
+                            <button mat-icon-button (click)="changeToEdit(category)" color="accent">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                            <button mat-icon-button color="warn" (click)="onDeleteCategory(category.id)">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </div>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+        </div>
+        <div class="col-4 fixed-pos">
+            <app-category-add *ngIf="add" (SavedCategory)="getCategorys()"></app-category-add>
+            <app-category-edit *ngIf="!add" (switchToAdd)="changeToAdd($event)" [category]="categoryToEdit"></app-category-edit>
+        </div>
+        
+    </div>
+</div>

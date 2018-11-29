@@ -1,0 +1,19 @@
+<div class="container mt-5">
+  <div class="row justify-content-center align-items-center">
+    <form class="example-form" #loginForm="ngForm">
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Username" id="userName" name="name" [(ngModel)]="loginModel.userName" required maxlength="200"
+          minlength="3">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Password" type="password" id="password" name="password" [(ngModel)]="loginModel.password" required maxlength="200"
+          minlength="3">
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" (click)="LogIn()" [disabled]="!loginForm.valid">Login</button>
+
+    </form>
+  </div>
+</div>

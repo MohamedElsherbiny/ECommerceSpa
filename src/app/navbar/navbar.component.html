@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
 
-    <a class="navbar-brand" [routerLink]="['/home']" >Store</a>
+    <a class="navbar-brand" [routerLink]="['/home']">Store</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -13,12 +13,13 @@
           <a class="nav-link" [routerLink]="['/home']">Home <span class="sr-only">(current)</span></a>
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Username" aria-label="Username">
-        <input class="form-control mr-sm-2" type="search" placeholder="Password" aria-label="Password">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
-      </form>
+        <button class="btn btn-outline-warning my-2 my-sm-0" (click)="logOut()" *ngIf="logedIn()"
+        type="submit">Logout</button>
+        <button class="btn btn-success my-2 mx-2 my-sm-0" [routerLink]="['/login']" *ngIf="!logedIn()"
+        type="submit">LogIn</button>
+        <button class="btn btn-primary my-2 my-sm-0" [routerLink]="['/register']" *ngIf="!logedIn()"
+        type="submit">Register</button>
     </div>
   </div>
-
+  <app-cart-summary [routerLink]="[ '/cart/detail']"></app-cart-summary>
 </nav>

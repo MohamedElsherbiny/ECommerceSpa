@@ -7,22 +7,46 @@ import { ProductDetailComponent } from './store/product-detail/product-detail.co
 import { SupplierComponent } from './suppliers/supplier.component';
 import { SupplierAddComponent } from './suppliers/supplier-add/supplier-add.component';
 import { SupplierEditComponent } from './suppliers/supplier-edit/supplier-edit.component';
-import { CategoryEditComponent } from './categorys/category-edit/category-edit.component';
 import { SupplierDetailComponent } from './suppliers/supplier-detail/supplier-detail.component';
-import { CategoryComponent } from './categorys/category.component';
-import { CategoryAddComponent } from './categorys/category-add/category-add.component';
-import { CategoryDetailComponent } from './categorys/category-detail/category-detail.component';
+import { CategoryAddComponent } from './store/categorys/category-add/category-add.component';
+import { CategoryDetailComponent } from './store/categorys/category-detail/category-detail.component';
+import { CategoryEditComponent } from './store/categorys/category-edit/category-edit.component';
+import { CategoryComponent } from './store/categorys/category.component';
+import { AdminComponent } from './admin/admin.component';
+import { AuthGuard } from './admin/auth.guard';
+import { LoginComponent } from './admin/login/login.component';
+import { RegisterComponent } from './admin/register/register.component';
+import { RoleCardComponent } from './admin/roles/role-card/role-card.component';
+import { RoleDetailComponent } from './admin/roles/role-detail/role-detail.component';
+import { CartDetailComponent } from './store/cart-detail/cart-detail.component';
+import { CheckoutComponent } from './store/checkout/checkout.component';
+import { UsersComponent } from './admin/users/users.component';
 
 const routes: Routes = [
+  {
+    path: 'admin', component: AdminComponent, canActivate: [AuthGuard], children: [
+      { path: 'users', component: UsersComponent },
+      { path: 'roles', component: RoleCardComponent },
+      { path: 'categorys', component: CategoryComponent },
+      { path: 'suppliers', component: SupplierComponent },
+      { path: 'product/add', component: ProductAddComponent },
+      { path: 'suppliers/add', component: SupplierAddComponent },
+      { path: 'suppliers/edit/:id', component: SupplierEditComponent },
+      { path: 'suppliers/detail/:id', component: SupplierDetailComponent },
+
+    ]
+  },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+
+  { path: 'cart/detail', component: CartDetailComponent },
+  { path: 'checkout', component: CheckoutComponent },
+
+
   { path: 'home', component: StoreComponent },
-  { path: 'product/add', component: ProductAddComponent },
   { path: 'product/edit/:id', component: ProductEditComponent },
   { path: 'product/detail/:id', component: ProductDetailComponent },
 
-  { path: 'supplier', component: SupplierComponent },
-  { path: 'supplier/add', component: SupplierAddComponent },
-  { path: 'supplier/edit/:id', component: SupplierEditComponent },
-  { path: 'supplier/detail/:id', component: SupplierDetailComponent },
 
   { path: 'category', component: CategoryComponent },
   { path: 'category/add', component: CategoryAddComponent },

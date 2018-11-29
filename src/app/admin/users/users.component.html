@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <table class="table">
+        <tr>
+          <th>Username</th>
+          <th>Email</th>
+        </tr>
+        <tr *ngFor="let user of users">
+          <td>{{user.userName}}</td>
+          <td>{{user.email}}</td>
+          <td>
+            <button mat-icon-button [routerLink]="[ '/user/detail', user.id ]" color="primary">
+              <mat-icon>info</mat-icon>
+            </button>
+            <button mat-icon-button (click)="changeToEdit(user)" color="accent">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="onDeleteUser(user.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+            <input type="hidden" #userId [value]="user">
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-4">
+      <app-user-add *ngIf="add" (SavedUser)="newUser($event)"></app-user-add>
+      <app-user-edit *ngIf="!add" [user]="userToEdit" (switchToAdd)="changeToAdd($event)"></app-user-edit>
+    </div>
+  </div>
+</div>
