@@ -20,7 +20,6 @@ export class UsersComponent implements OnInit {
     });
   }
   changeToAdd(val: boolean = true) {
-    console.log('changed');
     this.add = val;
   }
   changeToEdit(user: User) {

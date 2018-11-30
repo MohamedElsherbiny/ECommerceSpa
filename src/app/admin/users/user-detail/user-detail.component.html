@@ -1,3 +1,36 @@
-<p>
-  user-detail works!
-</p>
+<table class="table">
+    <tr>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+    </tr>
+    <tr>
+        <td>
+            <mat-chip-list>
+                <mat-chip color="primary" selected>{{user?.userName}}</mat-chip>
+            </mat-chip-list>
+        </td>
+        <td>
+            <mat-chip-list>
+                <mat-chip color="primary" selected>{{user?.email}}</mat-chip>
+            </mat-chip-list>
+        </td>
+        <td>
+            <mat-chip-list>
+                <mat-chip color="primary" selected>{{user?.phoneNumber}}</mat-chip>
+            </mat-chip-list>
+        </td>
+    </tr>
+</table>
+<table class="table">
+    <tr>
+        <th>Roles</th>
+    </tr>
+    <tr>
+        <td>
+            <mat-chip-list *ngFor="let role of user?.roles">
+                <mat-chip color="accent" selected>{{role}}</mat-chip>
+            </mat-chip-list>
+        </td>
+    </tr>
+</table>

@@ -2,48 +2,70 @@
   <div class="row justify-content-center align-items-center">
     <form class="example-form" #addSupplierForm="ngForm">
 
-      <mat-form-field class="example-full-width">
-        <input matInput placeholder="Company Name" id="companyName" name="companyName" [(ngModel)]="supplier.companyName" required maxlength="200"
-          minlength="3">
-      </mat-form-field>
+      <table>
+        <tr>
+          <td colspan="2">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Company Name" id="companyName" name="companyName" [(ngModel)]="supplier.companyName"
+                required maxlength="200" minlength="3">
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Contact Name" id="contactName" name="contactName" [(ngModel)]="supplier.contactName"
+                required maxlength="200" minlength="3">
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Country" id="country" name="country" [(ngModel)]="supplier.country" required
+                maxlength="200" minlength="3">
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="City" id="city" name="city" [(ngModel)]="supplier.city" required maxlength="200"
+                minlength="3">
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Contact Title" id="contactTitle" name="contactTitle" [(ngModel)]="supplier.contactTitle"
+                required maxlength="200" minlength="3">
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Address" id="address" name="address" [(ngModel)]="supplier.address" required
+                maxlength="200" minlength="3">
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Phone" id="phone" name="phone" [(ngModel)]="supplier.phone" required
+                maxlength="200" minlength="3">
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Postal Code" id="postalCode" name="postalCode" [(ngModel)]="supplier.postalCode"
+                required maxlength="200" minlength="3">
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
 
-      <mat-form-field class="example-full-width">
-        <input matInput placeholder="Contact Name" id="contactName" name="contactName" [(ngModel)]="supplier.contactName" required maxlength="200"
-          minlength="3">
-      </mat-form-field>
-
-      <mat-form-field class="example-full-width">
-        <input matInput placeholder="Contact Title" id="contactTitle" name="contactTitle" [(ngModel)]="supplier.contactTitle" required maxlength="200"
-          minlength="3">
-      </mat-form-field>
-
-      <mat-form-field class="example-full-width">
-        <input matInput placeholder="Country" id="country" name="country" [(ngModel)]="supplier.country" required maxlength="200"
-          minlength="3">
-      </mat-form-field>
-
-      <mat-form-field class="example-full-width">
-          <input matInput placeholder="City" id="city" name="city" [(ngModel)]="supplier.city" required maxlength="200"
-            minlength="3">
-        </mat-form-field>
-
-        <mat-form-field class="example-full-width">
-            <input matInput placeholder="Address" id="address" name="address" [(ngModel)]="supplier.address" required maxlength="200"
-              minlength="3">
-          </mat-form-field>
-
-      <mat-form-field class="example-full-width">
-        <input matInput placeholder="Phone" id="phone" name="phone" [(ngModel)]="supplier.phone" required maxlength="200"
-          minlength="3">
-      </mat-form-field>
-
-      <mat-form-field class="example-full-width">
-          <input matInput placeholder="Postal Code" id="postalCode" name="postalCode" [(ngModel)]="supplier.postalCode" required maxlength="200"
-            minlength="3">
-        </mat-form-field>
-
-      <button mat-raised-button color="primary" (click)="addSupplier()" [disabled]="!addSupplierForm.valid">Add Supplier</button>
-      <button mat-raised-button class="ml-3" [routerLink]="['/supplier']" color="warn">Cancel</button>
+      <button mat-raised-button color="primary" (click)="addSupplier()" [disabled]="!addSupplierForm.valid">Add
+        Supplier</button>
+      <button mat-raised-button class="ml-3" [routerLink]="['/admin/suppliers']" color="warn">Cancel</button>
 
     </form>
   </div>

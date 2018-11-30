@@ -19,7 +19,7 @@ export class RoleEditComponent implements OnInit {
     this.switchToAdd.emit(true);
   }
   saveRole() {
-    this.restAdmin.updateRole(this.role).subscribe(x => console.log('updated successful'), e => console.log('e'));
+    this.restAdmin.updateRole(this.role).subscribe(x => console.log('updated successful'));
   }
 
 }

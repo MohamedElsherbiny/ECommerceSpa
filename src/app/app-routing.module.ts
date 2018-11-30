@@ -21,11 +21,15 @@ import { RoleDetailComponent } from './admin/roles/role-detail/role-detail.compo
 import { CartDetailComponent } from './store/cart-detail/cart-detail.component';
 import { CheckoutComponent } from './store/checkout/checkout.component';
 import { UsersComponent } from './admin/users/users.component';
+import { AddToRoleComponent } from './admin/users/add-to-role/add-to-role.component';
+import { UserDetailComponent } from './admin/users/user-detail/user-detail.component';
 
 const routes: Routes = [
   {
     path: 'admin', component: AdminComponent, canActivate: [AuthGuard], children: [
       { path: 'users', component: UsersComponent },
+      { path: 'users/AddToRole/:id', component: AddToRoleComponent },
+      { path: 'users/detail/:id', component: UserDetailComponent },
       { path: 'roles', component: RoleCardComponent },
       { path: 'categorys', component: CategoryComponent },
       { path: 'suppliers', component: SupplierComponent },
@@ -33,6 +37,7 @@ const routes: Routes = [
       { path: 'suppliers/add', component: SupplierAddComponent },
       { path: 'suppliers/edit/:id', component: SupplierEditComponent },
       { path: 'suppliers/detail/:id', component: SupplierDetailComponent },
+      { path: 'roles/detail/:id', component: RoleDetailComponent },
 
     ]
   },

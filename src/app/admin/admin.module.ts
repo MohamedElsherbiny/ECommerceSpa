@@ -22,6 +22,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { UsersComponent } from './users/users.component';
+import { AddToRoleComponent } from './users/add-to-role/add-to-role.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { UsersComponent } from './users/users.component';
     OrdersComponent,
     LoginComponent,
     RegisterComponent,
-    UsersComponent
+    UsersComponent,
+    AddToRoleComponent
   ]
 })
 export class AdminModule { }

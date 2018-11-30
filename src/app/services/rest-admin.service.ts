@@ -20,7 +20,7 @@ export class RestAdminService {
     return this.http.get<User[]>(this.baseUrl + 'admin/users');
   }
   getUser(id: string): Observable<any> {
-    return this.http.get<User>(this.baseUrl + 'admin/users' + id);
+    return this.http.get<User>(this.baseUrl + 'admin/users/' + id);
   }
   addUser(user: User): Observable<any> {
     return this.http.post<any>(this.baseUrl + 'admin/users/add', user);

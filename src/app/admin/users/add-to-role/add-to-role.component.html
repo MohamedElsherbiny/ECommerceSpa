@@ -1,0 +1,20 @@
+<div class="my-2">
+  <mat-chip-list>
+    <mat-chip color="primary" selected>
+      {{user?.userName | titlecase}}
+    </mat-chip>
+  </mat-chip-list>
+</div>
+<mat-toolbar color="accent">
+  <mat-toolbar-row *ngFor="let role of roles; let i = index">
+    <span>{{role?.name | titlecase}}</span>
+    <span class="example-spacer"><i></i></span>
+    <button mat-mini-fab *ngIf="!InRole(role?.name, user?.roles)" (click)="addToRole(role.id)" color="primary">
+      <mat-icon>add</mat-icon>
+    </button>
+    <button mat-mini-fab *ngIf="InRole(role?.name, user?.roles)" (click)="removeFromRole(role.id)" color="warn">
+      <mat-icon>remove</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<button mat-raised-button class="my-3" [routerLink]="['/admin/users']" color="warn">Cancel</button>

@@ -20,6 +20,6 @@ export class UserEditComponent implements OnInit {
     this.switchToAdd.emit(true);
   }
   saveUser() {
-    this.restAdmin.updateUser(this.user).subscribe(x => console.log('updated successful'));
+    this.restAdmin.updateUser(this.user).subscribe(x => this.switchToAdd.emit(true));
   }
 }

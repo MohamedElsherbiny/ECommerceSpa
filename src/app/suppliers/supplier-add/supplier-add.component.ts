@@ -17,7 +17,7 @@ export class SupplierAddComponent implements OnInit {
   }
   addSupplier() {
     this.restSupplier.addSupplier(this.supplier).subscribe(x =>
-      this.router.navigate(['supplier'])
+      this.router.navigate(['admin/suppliers'])
     );
     this.supplier = new Supplier();
   }

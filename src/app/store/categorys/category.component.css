@@ -1,4 +1,5 @@
 .fixed-pos {
     position: fixed;
+    top: 200px;
     right: 10px;
 }
